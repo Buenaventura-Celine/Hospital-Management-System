@@ -2,6 +2,9 @@ const express = require('express'); //pangtawag sa express package
 const cors = require('cors'); //pangtawag sa cors package
 const mongoose = require('mongoose'); //pangtawag sa mongoose package
 
+//para maaccess yung router
+const HealthRouter = require('./routes/health')
+
 require('dotenv').config() //pangtawag sa dotenv package
 
 const app = express(); //paginstantiate : creation of an object
@@ -21,6 +24,9 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('MongoDB database connection is established')
 })
+
+//para iconnect sa route
+app.use('/health', HealthRouter); 
 
 app.listen(port, () => {
     console.log(`Server is running in port ${port}`)
