@@ -5,6 +5,8 @@ const router = require('express').Router()
 let Health = require('../models/health.model')
 
 //yung nakalagay sa parenthesis ayun yung pupuntahan na url
+
+//home
 router.route('/').get((req, res) => {
     //hahanapin lahat tapos ibabalik yung promise - query
     Health.find()
@@ -29,5 +31,27 @@ router.route('/add').post((req, res) => {
         .then(health => res.json('New record added'))
         .catch(err => res.status(400).json('Error : ' + err))
 })
+
+//details
+//yung sa params para makuha nya yung details sa url
+router.route('/:id').get((req, res) => {
+    Health.findById(req.params.id)
+        .then(health => res.json(health))
+        .catch(err => res.status(400).json('Error : ' + err))
+})
+
+//delete
+router.route('/:id').delete((req, res) => {
+    Health.findByIdAndDelete(req.params.id)
+        .then(res.json('Record was deleted'))
+        .catch(err => res.status(400).json('Error : ' + err))
+})
+
+//update
+// Magquery muna
+router.route('/update/:id').post((req, res) => {
+    
+})
+
 
 module.exports = router;
