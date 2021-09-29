@@ -51,7 +51,7 @@ router.route('/:id').delete((req, res) => {
 // Magquery muna
 //post kasi ipapasa mo rin yung data bago mo maedit
 router.route('/update/:id').post((req, res) => {
-    Health.findById((req, res))
+    Health.findById((req.params.id))
         .then(health => {
             //update lang yung current value
             health.fullname = req.body.fullname;
