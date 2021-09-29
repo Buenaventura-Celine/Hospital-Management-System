@@ -49,9 +49,20 @@ router.route('/:id').delete((req, res) => {
 
 //update
 // Magquery muna
+//post kasi ipapasa mo rin yung data bago mo maedit
 router.route('/update/:id').post((req, res) => {
-    
-})
+    Health.findById((req, res))
+        .then(health => {
+            //update lang yung current value
+            health.fullname = req.body.fullname;
+            health.temperature = req.body.temperature;
+            health.email = req.body.email;
+            health.phonenumber = req.body.phonenumber;
 
+            health.save()
+                .then(() => res.json('Record updated'))
+                .catch(err => res.status(400).json('Error : ' + err))
+        })
+})
 
 module.exports = router;
