@@ -14,7 +14,7 @@ function App() {
       <Navbar/>
       <Route path='/' component={HealthListScreen} exact/>
       <Route path='/edit/:id' component={EditScreen} exact/>
-      <Route path='/create' component={HealthListScreen} exact/>
+      <Route path='/create' component={CreateScreen} exact/>
     </Router>
   );
 }

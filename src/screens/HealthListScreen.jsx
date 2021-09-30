@@ -2,8 +2,8 @@ import React from 'react'
 
 const HealthListScreen = () => {
     return (
-        <div>
-            HealthListScreen
+        <div className="container">
+            <h1>Health List</h1>
         </div>
     )
 }
