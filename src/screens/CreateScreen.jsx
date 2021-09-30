@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default class CreateHealth extends Component {
     constructor(props) {
@@ -21,7 +22,17 @@ export default class CreateHealth extends Component {
 
     onSubmit(e){
         e.preventDefault()
-        console.log(this.state)
+
+        const health = {
+            fullname: this.state.fullname,
+            temperature: this.state.temperature,
+            email: this.state.email,
+            phonenumber: this.state.phonenumber,
+        }
+
+        axios.post('http://localhost:5000/health/add', health)
+            .then(res => window.location = "/")
+            .catch(err => console.log('Error : ' + err))
     }
 
     render() {
