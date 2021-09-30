@@ -3,11 +3,13 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
+import Navbar from './components/Navbar'
+
 function App() {
   return (
-    <div className="App">
-      <h1>Health Management System</h1> 
-    </div>
+    <Router>
+      <Navbar/>
+    </Router>
   );
 }
 
