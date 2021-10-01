@@ -60,7 +60,9 @@ export default class HealthListScreen extends Component {
                             <th className="text-center">Action</th>
                         </tr>
                     </thead>
-
+                    <tbody>
+                        {this.healthDeclarations()}
+                    </tbody>
                </table>
             </div>
         )
