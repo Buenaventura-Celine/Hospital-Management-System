@@ -10,8 +10,8 @@ const Health = props => {
             <td>{props.health.email}</td>
             <td>{props.health.phonenumber}</td>
             <td className="text-center">
-                <Link to={'/edit/'+props.health._id}>Edit</Link>
-                <a href="#" onClick={() => {props.deleteHealth(props.health._id)}}>Delete</a>
+                <Link to={'/edit/'+props.health._id} className="btn btn-primary btn-small">Edit</Link>
+                <a href="#" onClick={() => {props.deleteHealth(props.health._id)}} className="btn btn-danger btn-small">Delete</a>
             </td>
         </tr>
     )
