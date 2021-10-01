@@ -16,6 +16,14 @@ export default class CreateHealth extends Component {
         this.onValueChange = this.onValueChange.bind(this)
     }
 
+    componentDidMount(){
+        axios.get('http://localhost:5000/health/'+this.props.match.params.id)
+            .then(res => {
+                this.setState({health: res.data})  
+            })
+            .catch(err => {console.log(err)})
+    }
+
     onValueChange(e){
         this.setState({[e.target.dataset.name] : e.target.value})
     }

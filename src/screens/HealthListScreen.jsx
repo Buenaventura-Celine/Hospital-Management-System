@@ -30,8 +30,7 @@ export default class HealthListScreen extends Component {
             .then(res => {
                 this.setState({health: res.data})  
             })
-            .catch(err => {console.log(err)})
-        
+            .catch(err => {console.log(err)})   
     }
 
     deleteHealth(id){
